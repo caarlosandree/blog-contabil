@@ -23,7 +23,7 @@ export default function JuriscarfPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 w-full">
+      <main className="grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 w-full">
         <section className="text-center max-w-3xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Confusão Patrimonial & Remuneração Indireta
@@ -31,7 +31,7 @@ export default function JuriscarfPage() {
           <p className="text-lg text-slate-600 leading-relaxed">
             Este relatório interativo consolida a jurisprudência recente do CARF
             sobre a utilização de recursos corporativos para fins particulares. O
-            foco está na reclassificação fiscal de despesas "operacionais" para{' '}
+            foco está na reclassificação fiscal de despesas &quot;operacionais&quot; para{' '}
             <strong>Remuneração Indireta</strong> ou{' '}
             <strong>Distribuição Disfarçada de Lucros (DDL)</strong>, impactando
             IRPF (sócios), IRPJ e Contribuições Previdenciárias.
@@ -50,7 +50,7 @@ export default function JuriscarfPage() {
             </h2>
             <p className="text-slate-600 mt-2">
               Análise quantitativa baseada nos acórdãos selecionados. Observe a
-              prevalência da reclassificação para "Remuneração Indireta"
+              prevalência da reclassificação para &quot;Remuneração Indireta&quot;
               (incidência de INSS e IRPF Tabela Progressiva) em detrimento da
               simples glosa de despesa.
             </p>
