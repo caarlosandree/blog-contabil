@@ -21,45 +21,49 @@ export function TaxSimulatorTable({
       </h3>
 
       <div className="overflow-x-auto custom-scrollbar pb-2">
-        <table className="min-w-full text-sm text-left">
+        <table
+          className="min-w-full text-sm text-left"
+          role="table"
+          aria-label="Detalhamento financeiro anual comparando PF e PJ"
+        >
           <thead>
             <tr className="bg-[#F3F4F6] text-[#0F4C52] border-b-2 border-[#2E8B94]">
-              <th className="py-3 px-4 font-bold whitespace-nowrap">Ano</th>
-              <th className="py-3 px-4 font-bold whitespace-nowrap">
+              <th scope="col" className="py-3 px-4 font-bold whitespace-nowrap">Ano</th>
+              <th scope="col" className="py-3 px-4 font-bold whitespace-nowrap">
                 Receita Total
               </th>
-              <th className="py-3 px-4 font-bold whitespace-nowrap text-[#D97D54]">
+              <th scope="col" className="py-3 px-4 font-bold whitespace-nowrap text-[#D97D54]">
                 Funding Extra
               </th>
-              <th className="py-3 px-4 font-bold whitespace-nowrap text-[#D97D54]">
+              <th scope="col" className="py-3 px-4 font-bold whitespace-nowrap text-[#D97D54]">
                 IRRF Funding (PF)
               </th>
-              <th className="py-3 px-4 font-bold whitespace-nowrap text-[#D97D54]">
+              <th scope="col" className="py-3 px-4 font-bold whitespace-nowrap text-[#D97D54]">
                 GC (PF)
               </th>
-              <th className="py-3 px-4 font-bold whitespace-nowrap text-[#D97D54]">
+              <th scope="col" className="py-3 px-4 font-bold whitespace-nowrap text-[#D97D54]">
                 IBS/CBS (PF)
               </th>
-              <th className="py-3 px-4 font-bold whitespace-nowrap bg-orange-50 text-[#D97D54]">
+              <th scope="col" className="py-3 px-4 font-bold whitespace-nowrap bg-orange-50 text-[#D97D54]">
                 Total PF
               </th>
-              <th className="py-3 px-4 font-bold whitespace-nowrap text-[#D97D54]">
-                % Efetiva
+              <th scope="col" className="py-3 px-4 font-bold whitespace-nowrap text-[#D97D54]">
+                % Efetiva PF
               </th>
-              <th className="py-3 px-4 font-bold whitespace-nowrap bg-teal-50 text-[#0F4C52]">
+              <th scope="col" className="py-3 px-4 font-bold whitespace-nowrap bg-teal-50 text-[#0F4C52]">
                 Total PJ
               </th>
-              <th className="py-3 px-4 font-bold whitespace-nowrap text-[#0F4C52]">
-                % Efetiva
+              <th scope="col" className="py-3 px-4 font-bold whitespace-nowrap text-[#0F4C52]">
+                % Efetiva PJ
               </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
             {yearlyResults.map((row) => (
-              <tr key={row.year} className="hover:bg-gray-50 transition">
-                <td className="py-3 px-4 font-bold text-[#141414]">
+              <tr key={row.year} className="hover:bg-gray-50 transition" role="row">
+                <th scope="row" className="py-3 px-4 font-bold text-[#141414]">
                   {row.year}
-                </td>
+                </th>
                 <td className="py-3 px-4 text-gray-600">
                   {formatCurrency(row.receitaTotal)}
                 </td>
