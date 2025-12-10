@@ -25,12 +25,19 @@ export function TaxSimulatorKPIs({
   const winnerColor = winner === 'PJ' ? 'text-[#0F4C52]' : 'text-[#D97D54]';
 
   // Cálculos adicionais
-  const lucroLiquidoPf = lucroBruto - totalPf;
-  const lucroLiquidoPj = lucroBruto - totalPj;
-  const margemLucroPf = receitaTotal > 0 ? (lucroLiquidoPf / receitaTotal) * 100 : 0;
-  const margemLucroPj = receitaTotal > 0 ? (lucroLiquidoPj / receitaTotal) * 100 : 0;
-  const roiPf = custoTotal > 0 ? (lucroLiquidoPf / custoTotal) * 100 : 0;
-  const roiPj = custoTotal > 0 ? (lucroLiquidoPj / custoTotal) * 100 : 0;
+  // Os impostos são acumulados para 8 anos (2026-2033), então precisamos
+  // calcular os valores acumulados de receita, custo e lucro bruto para 8 anos
+  const NUM_YEARS = yearlyResults.length;
+  const receitaTotalAcumulada = receitaTotal * NUM_YEARS;
+  const custoTotalAcumulado = custoTotal * NUM_YEARS;
+  const lucroBrutoAcumulado = lucroBruto * NUM_YEARS;
+  
+  const lucroLiquidoPf = lucroBrutoAcumulado - totalPf;
+  const lucroLiquidoPj = lucroBrutoAcumulado - totalPj;
+  const margemLucroPf = receitaTotalAcumulada > 0 ? (lucroLiquidoPf / receitaTotalAcumulada) * 100 : 0;
+  const margemLucroPj = receitaTotalAcumulada > 0 ? (lucroLiquidoPj / receitaTotalAcumulada) * 100 : 0;
+  const roiPf = custoTotalAcumulado > 0 ? (lucroLiquidoPf / custoTotalAcumulado) * 100 : 0;
+  const roiPj = custoTotalAcumulado > 0 ? (lucroLiquidoPj / custoTotalAcumulado) * 100 : 0;
   
   // Taxa efetiva média (média das taxas efetivas ao longo dos anos)
   const taxaEfetivaMediaPf = yearlyResults.reduce((acc, r) => acc + r.effectivePf, 0) / yearlyResults.length;

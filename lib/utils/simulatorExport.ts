@@ -183,12 +183,20 @@ export function generateDetailedReport(
   const results = calculateSimulatorResults(inputs);
   const winner = results.totalPj < results.totalPf ? 'PJ' : 'PF';
   const savings = Math.abs(results.totalPf - results.totalPj);
-  const lucroLiquidoPf = results.lucroBruto - results.totalPf;
-  const lucroLiquidoPj = results.lucroBruto - results.totalPj;
-  const margemLucroPf = results.receitaTotal > 0 ? (lucroLiquidoPf / results.receitaTotal) * 100 : 0;
-  const margemLucroPj = results.receitaTotal > 0 ? (lucroLiquidoPj / results.receitaTotal) * 100 : 0;
-  const roiPf = results.custoTotal > 0 ? (lucroLiquidoPf / results.custoTotal) * 100 : 0;
-  const roiPj = results.custoTotal > 0 ? (lucroLiquidoPj / results.custoTotal) * 100 : 0;
+  
+  // Os impostos são acumulados para 8 anos (2026-2033), então precisamos
+  // calcular os valores acumulados de receita, custo e lucro bruto para 8 anos
+  const NUM_YEARS = results.yearlyResults.length;
+  const receitaTotalAcumulada = results.receitaTotal * NUM_YEARS;
+  const custoTotalAcumulado = results.custoTotal * NUM_YEARS;
+  const lucroBrutoAcumulado = results.lucroBruto * NUM_YEARS;
+  
+  const lucroLiquidoPf = lucroBrutoAcumulado - results.totalPf;
+  const lucroLiquidoPj = lucroBrutoAcumulado - results.totalPj;
+  const margemLucroPf = receitaTotalAcumulada > 0 ? (lucroLiquidoPf / receitaTotalAcumulada) * 100 : 0;
+  const margemLucroPj = receitaTotalAcumulada > 0 ? (lucroLiquidoPj / receitaTotalAcumulada) * 100 : 0;
+  const roiPf = custoTotalAcumulado > 0 ? (lucroLiquidoPf / custoTotalAcumulado) * 100 : 0;
+  const roiPj = custoTotalAcumulado > 0 ? (lucroLiquidoPj / custoTotalAcumulado) * 100 : 0;
 
   let report = '=== SIMULADOR DE TAXA - RELATÓRIO DETALHADO ===\n\n';
   
@@ -289,12 +297,20 @@ export function exportHistoryToCSV(
     const results = calculateSimulatorResults(simulation.inputs);
     const winner = results.totalPj < results.totalPf ? 'PJ' : 'PF';
     const savings = Math.abs(results.totalPf - results.totalPj);
-    const lucroLiquidoPf = results.lucroBruto - results.totalPf;
-    const lucroLiquidoPj = results.lucroBruto - results.totalPj;
-    const margemLucroPf = results.receitaTotal > 0 ? (lucroLiquidoPf / results.receitaTotal) * 100 : 0;
-    const margemLucroPj = results.receitaTotal > 0 ? (lucroLiquidoPj / results.receitaTotal) * 100 : 0;
-    const roiPf = results.custoTotal > 0 ? (lucroLiquidoPf / results.custoTotal) * 100 : 0;
-    const roiPj = results.custoTotal > 0 ? (lucroLiquidoPj / results.custoTotal) * 100 : 0;
+    
+    // Os impostos são acumulados para 8 anos (2026-2033), então precisamos
+    // calcular os valores acumulados de receita, custo e lucro bruto para 8 anos
+    const NUM_YEARS = results.yearlyResults.length;
+    const receitaTotalAcumulada = results.receitaTotal * NUM_YEARS;
+    const custoTotalAcumulado = results.custoTotal * NUM_YEARS;
+    const lucroBrutoAcumulado = results.lucroBruto * NUM_YEARS;
+    
+    const lucroLiquidoPf = lucroBrutoAcumulado - results.totalPf;
+    const lucroLiquidoPj = lucroBrutoAcumulado - results.totalPj;
+    const margemLucroPf = receitaTotalAcumulada > 0 ? (lucroLiquidoPf / receitaTotalAcumulada) * 100 : 0;
+    const margemLucroPj = receitaTotalAcumulada > 0 ? (lucroLiquidoPj / receitaTotalAcumulada) * 100 : 0;
+    const roiPf = custoTotalAcumulado > 0 ? (lucroLiquidoPf / custoTotalAcumulado) * 100 : 0;
+    const roiPj = custoTotalAcumulado > 0 ? (lucroLiquidoPj / custoTotalAcumulado) * 100 : 0;
 
     // Cabeçalho da simulação
     csvLines.push(`=== SIMULAÇÃO ${index + 1} de ${simulations.length} ===`);
@@ -395,10 +411,17 @@ export function exportHistoryToText(
     const results = calculateSimulatorResults(simulation.inputs);
     const winner = results.totalPj < results.totalPf ? 'PJ' : 'PF';
     const savings = Math.abs(results.totalPf - results.totalPj);
-    const lucroLiquidoPf = results.lucroBruto - results.totalPf;
-    const lucroLiquidoPj = results.lucroBruto - results.totalPj;
-    const margemLucroPf = results.receitaTotal > 0 ? (lucroLiquidoPf / results.receitaTotal) * 100 : 0;
-    const margemLucroPj = results.receitaTotal > 0 ? (lucroLiquidoPj / results.receitaTotal) * 100 : 0;
+    
+    // Os impostos são acumulados para 8 anos (2026-2033), então precisamos
+    // calcular os valores acumulados de receita e lucro bruto para 8 anos
+    const NUM_YEARS = results.yearlyResults.length;
+    const receitaTotalAcumulada = results.receitaTotal * NUM_YEARS;
+    const lucroBrutoAcumulado = results.lucroBruto * NUM_YEARS;
+    
+    const lucroLiquidoPf = lucroBrutoAcumulado - results.totalPf;
+    const lucroLiquidoPj = lucroBrutoAcumulado - results.totalPj;
+    const margemLucroPf = receitaTotalAcumulada > 0 ? (lucroLiquidoPf / receitaTotalAcumulada) * 100 : 0;
+    const margemLucroPj = receitaTotalAcumulada > 0 ? (lucroLiquidoPj / receitaTotalAcumulada) * 100 : 0;
 
     report += `SIMULAÇÃO ${index + 1} de ${simulations.length}\n`;
     report += '-'.repeat(80) + '\n';
