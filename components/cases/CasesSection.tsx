@@ -33,8 +33,8 @@ export function CasesSection() {
           <h2 className="text-2xl font-bold">Explorador de Acórdãos</h2>
           <p className="text-blue-200 mt-2 text-sm md:text-base">
             Navegue por casos representativos que tratam dos tópicos pesquisados.
-            Utilize os filtros para focar em temas específicos como "Veículos",
-            "Cartão de Crédito" ou "Lucros Isentos".
+            Utilize os filtros para focar em temas específicos como &quot;Veículos&quot;,
+            &quot;Cartão de Crédito&quot; ou &quot;Lucros Isentos&quot;.
           </p>
 
           <CaseFilters

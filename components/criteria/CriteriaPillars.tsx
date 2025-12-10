@@ -56,7 +56,7 @@ export function CriteriaPillars() {
             <br />
             <br />
             A falta de contrato de mútuo com juros de mercado e prazo definido
-            é fatal. O CARF rejeita a tese de "adiantamento" se não houver
+            é fatal. O CARF rejeita a tese de &quot;adiantamento&quot; se não houver
             prova contábil robusta.
           </p>
         </div>

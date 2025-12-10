@@ -39,14 +39,20 @@ export function GuideSection({ items }: GuideSectionProps) {
   const handleOpenModal = (item: GuideItem) => {
     setSelectedItem(item);
     setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedItem(null);
-    document.body.style.overflow = 'auto';
   };
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isModalOpen]);
 
   useEffect(() => {
     if (!isModalOpen) return;
@@ -55,12 +61,13 @@ export function GuideSection({ items }: GuideSectionProps) {
       if (e.key === 'Escape') {
         setIsModalOpen(false);
         setSelectedItem(null);
-        document.body.style.overflow = 'auto';
       }
     };
 
     document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
   }, [isModalOpen]);
 
   const getCategoryBadgeColor = (category: GuideCategory) => {

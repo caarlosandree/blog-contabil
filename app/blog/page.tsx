@@ -9,7 +9,7 @@ import { guideData } from '@/lib/data/guideData';
 import { blogSubjects } from '@/lib/data/blogData';
 
 export const metadata = {
-  title: 'Guia de Boas Práticas - Plano A Contabilidade',
+  title: 'Blog - Plano A Contabilidade',
   description:
     'Guia interativo para organização fiscal, contábil e financeira. Transforme as diretrizes da Plano A em ações práticas para escalar seu negócio com segurança.',
 };

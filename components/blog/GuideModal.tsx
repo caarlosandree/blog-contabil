@@ -15,7 +15,7 @@ export function GuideModal({ item, isOpen, onClose }: GuideModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[60]"
+      className="fixed inset-0 z-60"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
