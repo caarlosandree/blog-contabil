@@ -24,14 +24,36 @@ export function CaseModal({ caseData, isOpen, onClose }: CaseModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] flex flex-col">
-        <DialogHeader>
-          <DialogTitle className="text-xl font-bold text-[#082D31]">
-            Detalhes do Acórdão
-          </DialogTitle>
-        </DialogHeader>
+      <DialogContent className="max-w-2xl max-h-[90vh] flex flex-col p-0 overflow-hidden">
+        <div className="bg-[#0F4C52] p-6 text-white rounded-t-lg sticky top-0 z-10">
+          <div className="flex justify-between items-center">
+            <DialogTitle className="text-xl font-bold text-white">
+              Detalhes do Acórdão
+            </DialogTitle>
+            <button
+              onClick={onClose}
+              className="text-white hover:text-gray-200 transition-colors"
+              aria-label="Fechar modal"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
 
-        <div className="overflow-y-auto custom-scroll flex-1">
+        <div className="px-8 py-6 overflow-y-auto custom-scroll flex-1">
           <div className="space-y-4">
             <div>
               <span className="text-xs font-bold text-[#082D31]/70 uppercase tracking-wider">
@@ -81,7 +103,7 @@ export function CaseModal({ caseData, isOpen, onClose }: CaseModalProps) {
           </div>
         </div>
 
-        <DialogFooter>
+        <DialogFooter className="px-8 pb-6 border-t border-gray-200 pt-4">
           <Button
             type="button"
             variant="secondary"
