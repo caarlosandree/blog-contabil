@@ -35,7 +35,7 @@ export function Header() {
               Plano A <span className="text-[#2E8B94] font-light">Contabilidade</span>
             </Link>
           </div>
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             {isBlogMainPage && (
               <>
                 <a
