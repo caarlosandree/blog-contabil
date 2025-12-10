@@ -10,7 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { History, Trash2, Loader2, X } from 'lucide-react';
+import { History, Trash2, X, Download } from 'lucide-react';
 import type { SimulatorInputs } from '@/types';
 import {
   getSimulationHistory,
@@ -19,6 +19,10 @@ import {
   type SavedSimulation,
 } from '@/lib/utils/simulatorStorage';
 import { formatCurrency } from '@/lib/utils/currency';
+import {
+  exportHistoryToCSV,
+  exportHistoryToText,
+} from '@/lib/utils/simulatorExport';
 
 interface TaxSimulatorHistoryProps {
   onLoadSimulation: (inputs: SimulatorInputs) => void;
@@ -52,6 +56,7 @@ export function TaxSimulatorHistory({
       setHistory([]);
     }
   };
+
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -87,7 +92,27 @@ export function TaxSimulatorHistory({
           </div>
         ) : (
           <div className="space-y-3 mt-4">
-            <div className="flex justify-end">
+            <div className="flex justify-between items-center gap-2 flex-wrap">
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => exportHistoryToCSV(history)}
+                  className="text-[#2E8B94] border-[#2E8B94] hover:bg-[#2E8B94] hover:text-white"
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Exportar Tudo (CSV)
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => exportHistoryToText(history)}
+                  className="text-[#2E8B94] border-[#2E8B94] hover:bg-[#2E8B94] hover:text-white"
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Exportar Tudo (TXT)
+                </Button>
+              </div>
               <Button
                 variant="outline"
                 size="sm"
