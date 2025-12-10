@@ -1,4 +1,4 @@
-import { StatCard } from '@/components/ui/StatCard';
+import { StatCard } from '@/components/dashboard/StatCard';
 
 export function KPICards() {
   return (
