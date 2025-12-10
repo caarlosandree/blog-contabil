@@ -75,13 +75,13 @@ export function GuideSection({ items }: GuideSectionProps) {
       case 'riscos':
         return 'bg-red-100 text-red-700';
       case 'organização':
-        return 'bg-blue-100 text-blue-700';
+        return 'bg-[#F0F7F7] text-[#0F4C52]';
       case 'financeiro':
         return 'bg-green-100 text-green-700';
       case 'fiscal':
         return 'bg-amber-100 text-amber-700';
       default:
-        return 'bg-slate-100 text-slate-600';
+        return 'bg-[#F0F7F7] text-[#082D31]';
     }
   };
 
@@ -89,7 +89,7 @@ export function GuideSection({ items }: GuideSectionProps) {
     <>
       <section id="guia" className="space-y-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <h2 className="text-2xl font-bold text-blue-900">Guia Prático Interativo</h2>
+          <h2 className="text-2xl font-bold text-[#0F4C52]">Guia Prático Interativo</h2>
 
           <div className="relative w-full md:w-64">
             <input
@@ -97,10 +97,10 @@ export function GuideSection({ items }: GuideSectionProps) {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Buscar por tema..."
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent text-sm"
+              className="w-full pl-10 pr-4 py-2 rounded-lg border border-[#F0F7F7] focus:outline-none focus:ring-2 focus:ring-[#0F4C52] focus:border-transparent text-sm"
             />
             <svg
-              className="absolute left-3 top-2.5 h-4 w-4 text-slate-600"
+              className="absolute left-3 top-2.5 h-4 w-4 text-[#082D31]/70"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -124,8 +124,8 @@ export function GuideSection({ items }: GuideSectionProps) {
               className={clsx(
                 'px-4 py-1.5 rounded-full text-sm font-medium transition-colors border',
                 selectedCategory === category.value
-                  ? 'bg-blue-900 text-white border-blue-900'
-                  : 'bg-white text-slate-600 border-slate-300 hover:border-blue-900 hover:text-blue-900'
+                  ? 'bg-[#0F4C52] text-white border-[#0F4C52]'
+                  : 'bg-white text-[#082D31] border-[#F0F7F7] hover:border-[#0F4C52] hover:text-[#0F4C52]'
               )}
             >
               {category.label}
@@ -134,7 +134,7 @@ export function GuideSection({ items }: GuideSectionProps) {
         </div>
 
         {filteredItems.length === 0 ? (
-          <div className="text-center py-12 text-slate-600">
+          <div className="text-center py-12 text-[#082D31]">
             <p>Nenhum resultado encontrado para sua busca.</p>
           </div>
         ) : (
@@ -142,7 +142,7 @@ export function GuideSection({ items }: GuideSectionProps) {
             {filteredItems.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col hover:shadow-md transition duration-200"
+                className="bg-white rounded-xl shadow-sm border border-[#F0F7F7] p-6 flex flex-col hover:shadow-md transition duration-200"
               >
                 <div className="flex justify-between items-start mb-4">
                   <span
@@ -154,15 +154,15 @@ export function GuideSection({ items }: GuideSectionProps) {
                     {item.category}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-blue-900 mb-2">
+                <h3 className="text-xl font-bold text-[#0F4C52] mb-2">
                   {item.title}
                 </h3>
-                <p className="text-slate-600 text-sm mb-6 grow leading-relaxed">
+                <p className="text-[#082D31] text-sm mb-6 grow leading-relaxed">
                   {item.excerpt}
                 </p>
                 <button
                   onClick={() => handleOpenModal(item)}
-                  className="group flex items-center text-blue-900 font-semibold text-sm hover:text-blue-700 transition"
+                  className="group flex items-center text-[#0F4C52] font-semibold text-sm hover:text-[#2E8B94] transition"
                 >
                   Ver Detalhes
                   <svg

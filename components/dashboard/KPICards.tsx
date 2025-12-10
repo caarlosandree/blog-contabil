@@ -13,19 +13,19 @@ export function KPICards() {
         label="Tese Predominante"
         value="Salário Indireto"
         description="Reclassificação para rendimento tributável do sócio."
-        valueClassName="text-blue-900"
+        valueClassName="text-[#0F4C52]"
       />
       <StatCard
         label="Foco da Fiscalização"
         value="Cartões & Veículos"
         description="Itens mais frequentes em autuações."
-        valueClassName="text-slate-800"
+        valueClassName="text-[#082D31]"
       />
       <StatCard
         label="Fundamento Legal"
         value="Art. 60 DL 1.598/77"
         description="Norma geral antielisiva para DDL."
-        valueClassName="text-slate-800"
+        valueClassName="text-[#082D31]"
       />
     </section>
   );

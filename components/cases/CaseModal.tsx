@@ -1,6 +1,15 @@
 'use client';
 
 import type { Case } from '@/types';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 
 interface CaseModalProps {
   caseData: Case | null;
@@ -9,39 +18,26 @@ interface CaseModalProps {
 }
 
 export function CaseModal({ caseData, isOpen, onClose }: CaseModalProps) {
-  if (!isOpen || !caseData) {
+  if (!caseData) {
     return null;
   }
 
   return (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
-      onClick={onClose}
-    >
-      <div
-        className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="p-6 border-b border-slate-100 flex justify-between items-center">
-          <h3 className="text-xl font-bold text-slate-800">
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-w-2xl max-h-[90vh] flex flex-col">
+        <DialogHeader>
+          <DialogTitle className="text-xl font-bold text-[#082D31]">
             Detalhes do Acórdão
-          </h3>
-          <button
-            onClick={onClose}
-            className="text-slate-400 hover:text-slate-600 text-2xl font-bold"
-            aria-label="Fechar modal"
-          >
-            &times;
-          </button>
-        </div>
+          </DialogTitle>
+        </DialogHeader>
 
-        <div className="p-6 overflow-y-auto custom-scroll">
+        <div className="overflow-y-auto custom-scroll flex-1">
           <div className="space-y-4">
             <div>
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <span className="text-xs font-bold text-[#082D31]/70 uppercase tracking-wider">
                 Número do Acórdão
               </span>
-              <p className="text-slate-900 font-mono text-lg font-semibold">
+              <p className="text-[#082D31] font-mono text-lg font-semibold">
                 {caseData.number}
               </p>
             </div>
@@ -50,7 +46,7 @@ export function CaseModal({ caseData, isOpen, onClose }: CaseModalProps) {
               <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">
                 O que foi autuado?
               </span>
-              <p className="text-slate-800 mt-1">{caseData.fact}</p>
+              <p className="text-[#082D31] mt-1">{caseData.fact}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -58,42 +54,43 @@ export function CaseModal({ caseData, isOpen, onClose }: CaseModalProps) {
                 <span className="text-xs font-bold text-red-600 uppercase tracking-wider">
                   Argumento do Fisco
                 </span>
-                <p className="text-sm text-slate-600 mt-1">{caseData.fisco}</p>
+                <p className="text-sm text-[#082D31] mt-1">{caseData.fisco}</p>
               </div>
 
               <div>
-                <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
+                <span className="text-xs font-bold text-[#2E8B94] uppercase tracking-wider">
                   Defesa do Contribuinte
                 </span>
-                <p className="text-sm text-slate-600 mt-1">
+                <p className="text-sm text-[#082D31] mt-1">
                   {caseData.defense}
                 </p>
               </div>
             </div>
 
-            <div className="border-t border-slate-100 pt-4">
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+            <div className="border-t border-[#F0F7F7] pt-4">
+              <span className="text-xs font-bold text-[#082D31]/70 uppercase tracking-wider">
                 Decisão & Fundamento
               </span>
-              <p className="text-slate-800 mt-1 font-medium">
+              <p className="text-[#082D31] mt-1 font-medium">
                 {caseData.decision}
               </p>
-              <p className="text-xs text-slate-500 mt-2 font-mono bg-slate-100 p-2 rounded">
+              <p className="text-xs text-[#082D31]/70 mt-2 font-mono bg-[#F0F7F7] p-2 rounded">
                 Base Legal: {caseData.law}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="p-4 bg-slate-50 border-t border-slate-100 text-right">
-          <button
+        <DialogFooter>
+          <Button
+            type="button"
+            variant="secondary"
             onClick={onClose}
-            className="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 font-medium transition"
           >
             Fechar
-          </button>
-        </div>
-      </div>
-    </div>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 }

@@ -9,7 +9,7 @@ export function BlogGrid({ subjects }: BlogGridProps) {
   if (subjects.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-slate-600 text-lg">
+        <p className="text-[#082D31] text-lg">
           Nenhum assunto disponível no momento.
         </p>
       </div>

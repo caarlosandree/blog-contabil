@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50 text-slate-800 antialiased">
+    <div className="flex flex-col min-h-screen bg-[#F0F7F7] text-[#082D31] antialiased">
       <Header />
       <main className="grow pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 w-full">
         <HeroSection />
@@ -25,21 +25,21 @@ export default function BlogPage() {
 
         <ChartsSection />
 
-        <hr className="border-slate-200" />
+        <hr className="border-[#F0F7F7]" />
 
         <GuideSection items={guideData} />
 
         {blogSubjects.length > 0 && (
           <>
-            <hr className="border-slate-200" />
+            <hr className="border-[#F0F7F7]" />
 
             <section id="materias" className="space-y-6">
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                <h2 className="text-2xl font-bold text-blue-900">
+                <h2 className="text-2xl font-bold text-[#0F4C52]">
                   Matérias do Blog
                 </h2>
               </div>
-              <p className="text-slate-600 max-w-3xl">
+              <p className="text-[#082D31] max-w-3xl">
                 Análises detalhadas, jurisprudências e conteúdos especializados
                 sobre assuntos contábeis, tributários e fiscais.
               </p>

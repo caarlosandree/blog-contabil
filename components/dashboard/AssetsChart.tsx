@@ -58,13 +58,13 @@ export function AssetsChart() {
 
   return (
     <div className="flex flex-col items-center">
-      <h3 className="text-lg font-semibold text-slate-700 mb-4">
+      <h3 className="text-lg font-semibold text-[#082D31] mb-4">
         Tipos de Despesas Reclassificadas
       </h3>
       <div className="chart-container">
         <Bar data={data} options={options} />
       </div>
-      <p className="text-sm text-slate-500 text-center mt-4 max-w-md">
+      <p className="text-sm text-[#082D31]/70 text-center mt-4 max-w-md">
         Gastos com cartão de crédito corporativo sem prestação de contas e
         veículos de luxo representam a maioria das autuações por confusão
         patrimonial.

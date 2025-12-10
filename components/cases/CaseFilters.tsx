@@ -24,9 +24,9 @@ export function CaseFilters({ activeFilter, onFilterChange }: CaseFiltersProps) 
           key={filter.key}
           onClick={() => onFilterChange(filter.key)}
           className={clsx(
-            'px-4 py-2 rounded-full border border-blue-400 text-sm font-medium hover:bg-blue-800 transition',
+            'px-4 py-2 rounded-full border border-[#2E8B94] text-sm font-medium hover:bg-[#0F4C52] transition',
             activeFilter === filter.key &&
-              'bg-blue-900 text-white border-blue-900'
+              'bg-[#0F4C52] text-white border-[#0F4C52]'
           )}
         >
           {filter.label}

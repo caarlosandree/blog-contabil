@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Button } from '@/components/ui/button';
 
 export function Header() {
   const pathname = usePathname();
@@ -9,12 +10,12 @@ export function Header() {
   const isBlogMainPage = pathname === '/blog';
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-blue-900 shadow-lg text-white">
+    <header className="fixed w-full top-0 z-50 bg-[#0F4C52] shadow-lg text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="shrink-0 flex items-center gap-2">
             <svg
-              className="h-8 w-8 text-blue-300"
+              className="h-8 w-8 text-[#2E8B94]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -31,7 +32,7 @@ export function Header() {
               href="/blog"
               className="font-bold text-xl tracking-tight hover:opacity-90 transition-opacity"
             >
-              Plano A <span className="text-blue-300 font-light">Contabilidade</span>
+              Plano A <span className="text-[#2E8B94] font-light">Contabilidade</span>
             </Link>
           </div>
           <nav className="hidden md:flex space-x-8">
@@ -39,47 +40,48 @@ export function Header() {
               <>
                 <a
                   href="#dashboard"
-                  className="text-blue-300 hover:text-white transition-colors text-sm font-medium"
+                  className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
                 >
                   Dashboard
                 </a>
                 <a
                   href="#guia"
-                  className="text-blue-300 hover:text-white transition-colors text-sm font-medium"
+                  className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
                 >
                   Guia Prático
                 </a>
                 <a
                   href="#materias"
-                  className="text-blue-300 hover:text-white transition-colors text-sm font-medium"
+                  className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
                 >
                   Matérias
                 </a>
-                <a
-                  href="#contato"
-                  className="bg-blue-300 text-blue-900 px-4 py-2 rounded-full hover:bg-white transition-colors text-sm font-bold"
+                <Button
+                  asChild
+                  variant="secondary"
+                  className="bg-[#2E8B94] text-white hover:bg-[#2E8B94]/90 rounded-full"
                 >
-                  Fale Conosco
-                </a>
+                  <a href="#contato">Fale Conosco</a>
+                </Button>
               </>
             )}
             {isJuriscarfPage && (
               <>
                 <a
                   href="#dashboard"
-                  className="text-blue-300 hover:text-white transition-colors text-sm font-medium"
+                  className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
                 >
                   Painel Geral
                 </a>
                 <a
                   href="#criteria"
-                  className="text-blue-300 hover:text-white transition-colors text-sm font-medium"
+                  className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
                 >
                   Critérios Legais
                 </a>
                 <a
                   href="#cases"
-                  className="text-blue-300 hover:text-white transition-colors text-sm font-medium"
+                  className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
                 >
                   Banco de Acórdãos
                 </a>
@@ -88,7 +90,7 @@ export function Header() {
             {!isBlogMainPage && !isJuriscarfPage && (
               <Link
                 href="/blog"
-                className="text-blue-300 hover:text-white transition-colors text-sm font-medium"
+                className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
               >
                 Blog
               </Link>

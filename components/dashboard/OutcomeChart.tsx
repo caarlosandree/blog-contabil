@@ -41,13 +41,13 @@ export function OutcomeChart() {
 
   return (
     <div className="flex flex-col items-center">
-      <h3 className="text-lg font-semibold text-slate-700 mb-4">
+      <h3 className="text-lg font-semibold text-[#082D31] mb-4">
         Consequência Tributária (Decisão CARF)
       </h3>
       <div className="chart-container">
         <Doughnut data={data} options={options} />
       </div>
-      <p className="text-sm text-slate-500 text-center mt-4 max-w-md">
+      <p className="text-sm text-[#082D31]/70 text-center mt-4 max-w-md">
         O Fisco tende a tratar os pagamentos não como mera DDL (tributação
         exclusiva na fonte em alguns casos antigos), mas como{' '}
         <strong>Remuneração/Pró-labore</strong>, atraindo alíquotas de até 27,5%

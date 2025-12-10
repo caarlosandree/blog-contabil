@@ -3,11 +3,11 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contato" className="bg-slate-900 text-slate-300 mt-auto border-t border-slate-800">
+    <footer id="contato" className="bg-[#082D31] text-[#F0F7F7] mt-auto border-t border-[#0F4C52]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-slate-700 pb-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-[#0F4C52] pb-8 mb-8">
           
           {/* Coluna 1: Marca */}
           <div>
@@ -22,12 +22,12 @@ export function Footer() {
             <h4 className="text-white text-lg font-bold mb-4">Acesso Rápido</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-blue-300 transition">
+                <a href="#" className="hover:text-[#2E8B94] transition">
                   App do Cliente
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-300 transition">
+                <a href="#" className="hover:text-[#2E8B94] transition">
                   Envio de Documentos
                 </a>
               </li>
@@ -36,7 +36,7 @@ export function Footer() {
                   href="https://wa.me/5548991436776"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-300 transition"
+                  className="hover:text-[#2E8B94] transition"
                 >
                   Whatsapp Suporte
                 </a>
@@ -61,7 +61,7 @@ export function Footer() {
                   href="https://wa.me/5548991436776"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-300 transition"
+                  className="hover:text-[#2E8B94] transition"
                 >
                   (48) 99143-6776
                 </a>
@@ -71,7 +71,7 @@ export function Footer() {
         </div>
 
         {/* Barra Inferior */}
-        <div className="text-center text-xs text-slate-500">
+        <div className="text-center text-xs text-[#2E8B94]">
           &copy; {currentYear} Plano A Contabilidade. Todos os direitos reservados.
         </div>
 

@@ -77,11 +77,11 @@ export function ChartsSection() {
 
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-        <h3 className="text-lg font-bold text-blue-900 mb-2">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-[#F0F7F7]">
+        <h3 className="text-lg font-bold text-[#0F4C52] mb-2">
           Composição de Preço (Exemplo)
         </h3>
-        <p className="text-sm text-slate-600 mb-6">
+        <p className="text-sm text-[#082D31] mb-6">
           Muitos produtores esquecem os custos ocultos. O lucro real é menor que
           o valor da venda.
         </p>
@@ -90,11 +90,11 @@ export function ChartsSection() {
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-        <h3 className="text-lg font-bold text-blue-900 mb-2">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-[#F0F7F7]">
+        <h3 className="text-lg font-bold text-[#0F4C52] mb-2">
           Impacto Tributário: Pró-labore vs Lucro
         </h3>
-        <p className="text-sm text-slate-600 mb-6">
+        <p className="text-sm text-[#082D31] mb-6">
           A importância de ter a contabilidade em dia para isenção de impostos
           na distribuição de lucro.
         </p>
