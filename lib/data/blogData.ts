@@ -10,4 +10,13 @@ export const blogSubjects: BlogSubject[] = [
     publishedAt: '2024-01-15',
     featured: true,
   },
+  {
+    slug: 'parcerias-digitais',
+    title: 'Guia de Parcerias Digitais',
+    description:
+      'Entenda a diferença crucial entre Comissionamento e Parceria de Negócios. Evite riscos fiscais, bitributação e autuações escolhendo a estrutura correta para seu infoproduto.',
+    category: 'fiscal',
+    publishedAt: '2024-01-20',
+    featured: true,
+  },
 ];

@@ -36,3 +36,24 @@ export interface GuideItem {
   excerpt: string;
   content: string;
 }
+
+export type PartnershipCategory = 'model' | 'risk' | 'platform';
+
+export interface PartnershipItem {
+  id: string;
+  title: string;
+  category: PartnershipCategory;
+  excerpt: string;
+  content: {
+    what: string;
+    advantages?: string[];
+    observations?: string[];
+    example?: {
+      title: string;
+      data: Array<{ label: string; value: string }>;
+    };
+  };
+  borderColor: string;
+  badgeColor: string;
+  badgeLabel: string;
+}
