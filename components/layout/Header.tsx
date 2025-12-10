@@ -50,6 +50,12 @@ export function Header() {
                 >
                   Guia Prático
                 </a>
+                <Link
+                  href="/simulador-taxa"
+                  className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
+                >
+                  Simulador de Taxa
+                </Link>
                 <a
                   href="#materias"
                   className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
@@ -94,12 +100,20 @@ export function Header() {
               </>
             )}
             {!isBlogMainPage && !isJuriscarfPage && (
-              <Link
-                href="/blog"
-                className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
-              >
-                Blog
-              </Link>
+              <>
+                <Link
+                  href="/blog"
+                  className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
+                >
+                  Blog
+                </Link>
+                <Link
+                  href="/simulador-taxa"
+                  className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
+                >
+                  Simulador de Taxa
+                </Link>
+              </>
             )}
           </nav>
         </div>

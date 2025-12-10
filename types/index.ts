@@ -57,3 +57,25 @@ export interface PartnershipItem {
   badgeColor: string;
   badgeLabel: string;
 }
+
+export interface SimulatorInputs {
+  valorAquisicao: number;
+  custoObra: number;
+  valorVenda: number;
+  qtdImoveisAno: number;
+  lucroPfReinvestido: number;
+  pfContribuinteIbs: boolean;
+}
+
+export interface YearlyResult {
+  year: number;
+  receitaTotal: number;
+  fundingExtra: number;
+  irrfFunding: number;
+  impostoGc: number;
+  valorIbsCbsPf: number;
+  totalPf: number;
+  effectivePf: number;
+  totalPj: number;
+  effectivePj: number;
+}
