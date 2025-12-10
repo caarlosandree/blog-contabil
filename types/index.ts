@@ -15,3 +15,14 @@ export interface Case {
   law: string;
   risk: RiskLevel;
 }
+
+export type BlogCategory = 'jurisprudencia' | 'tributario' | 'contabil' | 'fiscal';
+
+export interface BlogSubject {
+  slug: string;
+  title: string;
+  description: string;
+  category: BlogCategory;
+  publishedAt: string;
+  featured?: boolean;
+}

@@ -15,9 +15,9 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: 'Análise Jurisprudencial CARF: Confusão Patrimonial e Remuneração Indireta',
+  title: 'Blog Plano A - Assuntos Contábeis',
   description:
-    'Relatório interativo consolidando a jurisprudência recente do CARF sobre a utilização de recursos corporativos para fins particulares.',
+    'Blog sobre assuntos contábeis, tributários e fiscais. Análises, jurisprudências e conteúdos especializados.',
 };
 
 export default function RootLayout({
