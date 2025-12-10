@@ -2,9 +2,11 @@
 
 import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
+import { formatCurrency } from '@/lib/utils/currency';
 
 export function PartnershipCalculator() {
-  const [price, setPrice] = useState(1000);
+  const [priceInput, setPriceInput] = useState<string>('R$ 1.000,00');
+  const [price, setPrice] = useState<number>(1000); // Valor em reais para cálculos
   const [percent, setPercent] = useState(30);
 
   const results = useMemo(() => {
@@ -21,12 +23,49 @@ export function PartnershipCalculator() {
     };
   }, [price, percent]);
 
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2,
-    }).format(value);
+  const handlePriceFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    // Seleciona todo o texto quando o campo recebe foco
+    e.target.select();
+  };
+
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    
+    // Se o campo estiver vazio, limpa tudo
+    if (!inputValue || inputValue.trim() === '') {
+      setPrice(0);
+      setPriceInput('');
+      return;
+    }
+    
+    // Remove tudo exceto números
+    const numbersOnly = inputValue.replace(/\D/g, '');
+    
+    if (!numbersOnly) {
+      setPrice(0);
+      setPriceInput('');
+      return;
+    }
+    
+    // Converte para número (já está em centavos)
+    // Exemplo: "3" = 3 centavos, "32" = 32 centavos, "321" = 3,21 reais
+    const cents = Number(numbersOnly);
+    
+    if (isNaN(cents) || cents < 0) {
+      setPrice(0);
+      setPriceInput('');
+      return;
+    }
+    
+    // Converte centavos para reais
+    const reais = cents / 100;
+    
+    // Atualiza o estado do valor numérico (para cálculos)
+    setPrice(reais);
+    
+    // Formata para exibição
+    const formatted = formatCurrency(reais);
+    setPriceInput(formatted);
   };
 
   return (
@@ -49,12 +88,13 @@ export function PartnershipCalculator() {
                 </label>
                 <input
                   id="calcPrice"
-                  type="number"
-                  min="0"
-                  step="0.01"
-                  value={price}
-                  onChange={(e) => setPrice(parseFloat(e.target.value) || 0)}
+                  type="text"
+                  inputMode="numeric"
+                  value={priceInput}
+                  onChange={handlePriceChange}
+                  onFocus={handlePriceFocus}
                   className="w-full p-3 rounded-lg bg-white text-[#082D31] text-lg font-medium focus:outline-none focus:ring-2 focus:ring-[#2E8B94] focus:ring-offset-2 focus:ring-offset-[#0F4C52]"
+                  placeholder="R$ 0,00"
                 />
               </div>
               <div>
