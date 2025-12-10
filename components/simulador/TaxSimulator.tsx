@@ -47,6 +47,12 @@ export function TaxSimulator() {
       <TaxSimulatorSidebar inputs={inputs} onInputsChange={setInputs} />
       <main className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
         <div className="max-w-7xl mx-auto space-y-6">
+          <div className="bg-white rounded-lg p-4 md:p-6 shadow-md border-l-4 border-[#0F4C52]">
+            <h2 className="text-xl md:text-2xl font-bold text-[#0F4C52] mb-3">
+              Detalhamento Financeiro (2026 - 2033)
+            </h2>
+            <div className="border-b border-gray-200"></div>
+          </div>
           <TaxSimulatorKPIs
             totalPf={totalPf}
             totalPj={totalPj}
