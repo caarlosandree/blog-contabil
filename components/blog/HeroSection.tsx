@@ -1,19 +1,19 @@
-import { Button } from '@/components/ui/button';
-
 export function HeroSection() {
   return (
-    <section className="bg-[#0F4C52] text-white pb-16 pt-10 rounded-b-[3rem] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 mb-0">
-      <div className="max-w-7xl mx-auto text-center max-w-4xl">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">
-          Organização fiscal, contábil e financeira{' '}
-          <span className="text-[#2E8B94]">para escalar com segurança</span>
-        </h1>
-        <p className="text-[#F0F7F7] text-lg mb-8 max-w-3xl mx-auto">
-          Este guia interativo transforma as diretrizes da Plano A em ações
-          práticas. Evite a confusão patrimonial, emita notas corretamente e
-          utilize a contabilidade estratégica para pagar menos impostos
-          legalmente.
-        </p>
+    <section className="bg-[#0F4C52] text-white pb-16 pt-10 rounded-b-[3rem] w-full mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-4xl mx-auto">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">
+            Organização fiscal, contábil e financeira{' '}
+            <span className="text-[#2E8B94]">para escalar com segurança</span>
+          </h1>
+          <p className="text-[#F0F7F7] text-lg mb-8 max-w-3xl mx-auto">
+            Este guia interativo transforma as diretrizes da Plano A em ações
+            práticas. Evite a confusão patrimonial, emita notas corretamente e
+            utilize a contabilidade estratégica para pagar menos impostos
+            legalmente.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 text-left max-w-5xl mx-auto">
           <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#2E8B94] text-[#082D31] transform hover:scale-105 transition duration-300">

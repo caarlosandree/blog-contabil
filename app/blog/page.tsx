@@ -18,9 +18,8 @@ export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#F0F7F7] text-[#082D31] antialiased">
       <Header />
-      <main className="grow pt-16 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 w-full">
-        <HeroSection />
-
+      <HeroSection />
+      <main className="grow pt-8 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 w-full">
         <DashboardCards />
 
         <ChartsSection />
