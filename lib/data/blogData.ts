@@ -19,4 +19,13 @@ export const blogSubjects: BlogSubject[] = [
     publishedAt: '2024-01-20',
     featured: true,
   },
+  {
+    slug: 'lei-15-270-2025',
+    title: 'Lei 15.270/2025: O Novo Imposto Sobre Altas Rendas',
+    description:
+      'A Lei 15.270/2025 altera as regras do jogo. Entenda a retenção de 10% na fonte e o IRPFM para rendas acima de R$ 600 mil anuais. Dashboard interativo com estratégias, simulador e checklist.',
+    category: 'tributario',
+    publishedAt: '2025-01-01',
+    featured: true,
+  },
 ];
