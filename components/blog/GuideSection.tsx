@@ -116,7 +116,7 @@ export function GuideSection({ items }: GuideSectionProps) {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2 bg-white p-1 rounded-lg shadow-sm">
+        <div className="flex flex-wrap gap-2 bg-white p-1 rounded-lg shadow-sm w-fit mx-auto">
           {categories.map((category) => (
             <button
               key={category.value}

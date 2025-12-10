@@ -4,7 +4,7 @@ export function DashboardCards() {
   return (
     <section
       id="dashboard"
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 -mt-8"
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
     >
       <Card className="flex flex-col justify-between bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-200 border-t-4 border-red-500 card-hover">
         <CardHeader>
