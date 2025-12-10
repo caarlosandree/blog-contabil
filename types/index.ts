@@ -26,3 +26,13 @@ export interface BlogSubject {
   publishedAt: string;
   featured?: boolean;
 }
+
+export type GuideCategory = 'organização' | 'fiscal' | 'financeiro' | 'riscos';
+
+export interface GuideItem {
+  id: number;
+  title: string;
+  category: GuideCategory;
+  excerpt: string;
+  content: string;
+}
