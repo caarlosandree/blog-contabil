@@ -1,15 +1,69 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import {
+  formatCurrency,
+} from '@/lib/utils/currency';
 
 export function Lei15270Calculator() {
-  const [monthlyProfit, setMonthlyProfit] = useState<number>(0);
+  const [monthlyProfitInput, setMonthlyProfitInput] = useState<string>('');
   const [showResult, setShowResult] = useState(false);
+  // Ref para armazenar o valor numérico em centavos (para cálculo correto)
+  const centsValueRef = useRef<number>(0);
+
+  // Converte centavos para reais
+  const monthlyProfit = centsValueRef.current / 100;
 
   const calculateImpact = () => {
     if (monthlyProfit > 0) {
       setShowResult(true);
     }
+  };
+
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    // Seleciona todo o texto quando o campo recebe foco
+    e.target.select();
+    // Reseta o valor quando foca (opcional - remove se preferir manter o valor)
+    // centsValueRef.current = 0;
+    // setMonthlyProfitInput('');
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    
+    // Se o campo estiver vazio, limpa tudo
+    if (!inputValue || inputValue.trim() === '') {
+      centsValueRef.current = 0;
+      setMonthlyProfitInput('');
+      return;
+    }
+    
+    // Remove tudo exceto números
+    const numbersOnly = inputValue.replace(/\D/g, '');
+    
+    if (!numbersOnly) {
+      centsValueRef.current = 0;
+      setMonthlyProfitInput('');
+      return;
+    }
+    
+    // Converte para número (já está em centavos)
+    // Exemplo: "3" = 3 centavos, "32" = 32 centavos, "321" = 3,21 reais
+    const cents = Number(numbersOnly);
+    
+    if (isNaN(cents) || cents < 0) {
+      centsValueRef.current = 0;
+      setMonthlyProfitInput('');
+      return;
+    }
+    
+    // Armazena o valor em centavos
+    centsValueRef.current = cents;
+    
+    // Converte centavos para reais e formata
+    const reais = cents / 100;
+    const formatted = formatCurrency(reais);
+    setMonthlyProfitInput(formatted);
   };
 
   const annual = monthlyProfit * 12;
@@ -52,11 +106,13 @@ export function Lei15270Calculator() {
                 Lucro Mensal Pretendido (R$)
               </label>
               <input
-                type="number"
-                value={monthlyProfit || ''}
-                onChange={(e) => setMonthlyProfit(Number(e.target.value))}
+                type="text"
+                inputMode="numeric"
+                value={monthlyProfitInput}
+                onChange={handleInputChange}
+                onFocus={handleFocus}
                 className="w-full p-3 rounded bg-white text-[#0F4C52] font-bold border-2 border-white focus:outline-none focus:ring-2 focus:ring-[#2E8B94] focus:border-[#2E8B94]"
-                placeholder="Ex: 60000"
+                placeholder="R$ 0,00"
               />
             </div>
           </div>
@@ -79,7 +135,7 @@ export function Lei15270Calculator() {
               <div className="font-bold text-[#D97D54]">
                 {retention > 0 ? (
                   <>
-                    R$ {retention.toLocaleString('pt-BR')}
+                    {formatCurrency(retention)}
                     <br />
                     <span className="text-xs font-normal text-white">
                       10% retido na fonte
@@ -87,7 +143,7 @@ export function Lei15270Calculator() {
                   </>
                 ) : (
                   <>
-                    <span className="text-[#2E8B94]">R$ 0,00</span>
+                    <span className="text-[#2E8B94]">{formatCurrency(0)}</span>
                     <br />
                     <span className="text-xs font-normal text-white">
                       Isento na fonte
@@ -98,9 +154,7 @@ export function Lei15270Calculator() {
             </div>
             <div className="flex justify-between items-center mb-3">
               <span>Total Anual:</span>
-              <span className="font-bold">
-                R$ {annual.toLocaleString('pt-BR')}
-              </span>
+              <span className="font-bold">{formatCurrency(annual)}</span>
             </div>
             <div className="flex justify-between items-center mb-3">
               <span>Status IRPFM:</span>
