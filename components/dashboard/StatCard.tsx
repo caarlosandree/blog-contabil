@@ -1,10 +1,11 @@
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 interface StatCardProps {
   label: string;
   value: string;
   description?: string;
   valueClassName?: string;
+  borderColor?: string;
 }
 
 export function StatCard({
@@ -12,14 +13,17 @@ export function StatCard({
   value,
   description,
   valueClassName = 'text-[#082D31]',
+  borderColor = 'border-[#2E8B94]',
 }: StatCardProps) {
   return (
-    <Card className="stat-card">
-      <CardContent className="p-6">
+    <Card className={`bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-200 border-t-4 ${borderColor} card-hover`}>
+      <CardHeader>
         <p className="text-sm font-semibold text-[#082D31]/70 uppercase">{label}</p>
-        <p className={`text-3xl font-bold mt-2 ${valueClassName}`}>{value}</p>
+      </CardHeader>
+      <CardContent>
+        <p className={`text-3xl font-bold ${valueClassName}`}>{value}</p>
         {description && (
-          <p className="text-xs text-[#082D31]/50 mt-1">{description}</p>
+          <p className="text-sm text-[#082D31] mt-2">{description}</p>
         )}
       </CardContent>
     </Card>

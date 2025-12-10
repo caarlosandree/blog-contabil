@@ -28,10 +28,10 @@ export function CasesSection() {
 
   return (
     <>
-      <section id="cases" className="bg-white rounded-2xl shadow-sm border border-[#F0F7F7] overflow-hidden">
-        <div className="p-6 md:p-8 bg-[#082D31] text-white">
-          <h2 className="text-2xl font-bold">Explorador de Acórdãos</h2>
-          <p className="text-[#2E8B94] mt-2 text-sm md:text-base">
+      <section id="cases" className="space-y-6">
+        <div>
+          <h2 className="text-2xl font-bold text-[#0F4C52] mb-2">Explorador de Acórdãos</h2>
+          <p className="text-[#082D31] max-w-3xl mb-6">
             Navegue por casos representativos que tratam dos tópicos pesquisados.
             Utilize os filtros para focar em temas específicos como &quot;Veículos&quot;,
             &quot;Cartão de Crédito&quot; ou &quot;Lucros Isentos&quot;.

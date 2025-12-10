@@ -18,15 +18,16 @@ const filters: Array<{ key: CaseType | 'all'; label: string }> = [
 
 export function CaseFilters({ activeFilter, onFilterChange }: CaseFiltersProps) {
   return (
-    <div className="flex flex-wrap gap-2 mt-6">
+    <div className="flex flex-wrap gap-2 bg-white p-1 rounded-lg shadow-sm w-fit mx-auto mt-6">
       {filters.map((filter) => (
         <button
           key={filter.key}
           onClick={() => onFilterChange(filter.key)}
           className={clsx(
-            'px-4 py-2 rounded-full border border-[#2E8B94] text-sm font-medium hover:bg-[#0F4C52] transition',
-            activeFilter === filter.key &&
-              'bg-[#0F4C52] text-white border-[#0F4C52]'
+            'px-4 py-2 text-sm font-semibold rounded-md transition-colors',
+            activeFilter === filter.key
+              ? 'bg-[#0F4C52] text-white'
+              : 'text-[#082D31] hover:bg-gray-100'
           )}
         >
           {filter.label}

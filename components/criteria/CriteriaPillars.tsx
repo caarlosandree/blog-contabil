@@ -14,12 +14,11 @@ export function CriteriaPillars() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-xl border border-[#F0F7F7] shadow-sm relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-16 h-16 bg-[#F0F7F7] rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-          <h3 className="text-lg font-bold text-[#082D31] mb-3 relative z-10">
+        <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-200 border-t-4 border-[#2E8B94] card-hover">
+          <h3 className="text-lg font-bold text-[#082D31] mb-3">
             1. Necessidade Operacional
           </h3>
-          <p className="text-[#082D31] text-sm">
+          <p className="text-[#082D31]/70 text-sm leading-relaxed">
             O bem ou serviço adquirido é <strong>essencial</strong> para a
             atividade da empresa?
             <br />
@@ -30,12 +29,11 @@ export function CriteriaPillars() {
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-[#F0F7F7] shadow-sm relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-16 h-16 bg-amber-100 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-          <h3 className="text-lg font-bold text-[#082D31] mb-3 relative z-10">
+        <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-200 border-t-4 border-amber-500 card-hover">
+          <h3 className="text-lg font-bold text-[#082D31] mb-3">
             2. Identificação do Beneficiário
           </h3>
-          <p className="text-[#082D31] text-sm">
+          <p className="text-[#082D31]/70 text-sm leading-relaxed">
             É possível identificar quem usufruiu do gasto?
             <br />
             <br />
@@ -45,12 +43,11 @@ export function CriteriaPillars() {
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-[#F0F7F7] shadow-sm relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-16 h-16 bg-red-100 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-          <h3 className="text-lg font-bold text-[#082D31] mb-3 relative z-10">
+        <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-200 border-t-4 border-red-500 card-hover">
+          <h3 className="text-lg font-bold text-[#082D31] mb-3">
             3. Inexistência de Reembolso
           </h3>
-          <p className="text-[#082D31] text-sm">
+          <p className="text-[#082D31]/70 text-sm leading-relaxed">
             Houve ressarcimento à empresa? Foi contabilizado como mútuo
             (empréstimo)?
             <br />
