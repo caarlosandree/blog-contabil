@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import type { SimulatorInputs, YearlyResult } from '@/types';
+import type { SimulatorInputs } from '@/types';
 import { TaxSimulatorSidebar } from './TaxSimulatorSidebar';
 import { TaxSimulatorKPIs } from './TaxSimulatorKPIs';
 import { TaxSimulatorChart } from './TaxSimulatorChart';
@@ -22,7 +22,7 @@ export function TaxSimulator() {
   // Atualiza URL imediatamente ao carregar
   useEffect(() => {
     updateUrlWithInputs(inputs);
-  }, []); // Apenas no mount
+  }, [inputs]); // Apenas no mount
 
   // Atualiza URL quando inputs mudam (com debounce)
   useEffect(() => {

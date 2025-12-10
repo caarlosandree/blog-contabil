@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import {
   formatCurrency,
 } from '@/lib/utils/currency';
@@ -8,11 +8,11 @@ import {
 export function Lei15270Calculator() {
   const [monthlyProfitInput, setMonthlyProfitInput] = useState<string>('');
   const [showResult, setShowResult] = useState(false);
-  // Ref para armazenar o valor numérico em centavos (para cálculo correto)
-  const centsValueRef = useRef<number>(0);
+  // Estado para armazenar o valor numérico em centavos (para cálculo correto)
+  const [centsValue, setCentsValue] = useState<number>(0);
 
   // Converte centavos para reais
-  const monthlyProfit = centsValueRef.current / 100;
+  const monthlyProfit = centsValue / 100;
 
   const calculateImpact = () => {
     if (monthlyProfit > 0) {
@@ -33,7 +33,7 @@ export function Lei15270Calculator() {
     
     // Se o campo estiver vazio, limpa tudo
     if (!inputValue || inputValue.trim() === '') {
-      centsValueRef.current = 0;
+      setCentsValue(0);
       setMonthlyProfitInput('');
       return;
     }
@@ -42,7 +42,7 @@ export function Lei15270Calculator() {
     const numbersOnly = inputValue.replace(/\D/g, '');
     
     if (!numbersOnly) {
-      centsValueRef.current = 0;
+      setCentsValue(0);
       setMonthlyProfitInput('');
       return;
     }
@@ -52,13 +52,13 @@ export function Lei15270Calculator() {
     const cents = Number(numbersOnly);
     
     if (isNaN(cents) || cents < 0) {
-      centsValueRef.current = 0;
+      setCentsValue(0);
       setMonthlyProfitInput('');
       return;
     }
     
     // Armazena o valor em centavos
-    centsValueRef.current = cents;
+    setCentsValue(cents);
     
     // Converte centavos para reais e formata
     const reais = cents / 100;

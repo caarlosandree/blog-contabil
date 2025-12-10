@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -34,11 +34,13 @@ export function TaxSimulatorHistory({
   const [history, setHistory] = useState<SavedSimulation[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    if (isOpen) {
+  const handleOpenChange = (open: boolean) => {
+    setIsOpen(open);
+    if (open) {
+      // Carrega histórico quando o dialog abre
       setHistory(getSimulationHistory());
     }
-  }, [isOpen]);
+  };
 
   const handleLoad = (simulation: SavedSimulation) => {
     onLoadSimulation(simulation.inputs);
@@ -59,7 +61,7 @@ export function TaxSimulatorHistory({
 
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <Button
           variant="outline"
