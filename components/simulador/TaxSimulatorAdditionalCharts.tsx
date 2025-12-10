@@ -65,6 +65,7 @@ export function TaxSimulatorAdditionalCharts({
         callbacks: {
           label: function (context) {
             const value = context.parsed.y;
+            if (value === null) return '';
             const label = value >= 0 ? 'PJ é mais caro' : 'PF é mais cara';
             return `${label}: ${new Intl.NumberFormat('pt-BR', {
               style: 'currency',
@@ -130,6 +131,7 @@ export function TaxSimulatorAdditionalCharts({
           label: function (context) {
             const label = context.dataset.label || '';
             const value = context.parsed.y;
+            if (value === null) return label;
             return `${label}: ${new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL',
