@@ -21,9 +21,9 @@ export const metadata = {
 
 export default function JuriscarfPage() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 w-full">
         <section className="text-center max-w-3xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Confusão Patrimonial & Remuneração Indireta
@@ -67,6 +67,6 @@ export default function JuriscarfPage() {
         <CasesSection />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
