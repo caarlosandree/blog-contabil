@@ -67,6 +67,12 @@ export function Header() {
             )}
             {isJuriscarfPage && (
               <>
+                <Link
+                  href="/blog"
+                  className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
+                >
+                  Blog
+                </Link>
                 <a
                   href="#dashboard"
                   className="text-[#2E8B94] hover:text-white transition-colors text-sm font-medium"
